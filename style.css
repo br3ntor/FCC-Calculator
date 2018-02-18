@@ -1,0 +1,130 @@
+@-webkit-keyframes BGColors {
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
+@-moz-keyframes BGColors {
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
+@keyframes BGColors { 
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
+body {
+    /* background-color: hsl(230, 12%, 20%); */    
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(274deg, #205367, #484b72, #4f7b70);
+    /* background: linear-gradient(274deg, #205367, #484b72, #4f7b70); */    
+    background-size: 600% 600%;    
+    -webkit-animation: BGColors 59s ease infinite;
+    -moz-animation: BGColors 59s ease infinite;
+    animation: BGColors 59s ease infinite;
+}
+
+h1 {
+    color: #000000;
+    background-color: rgba(117, 162, 195, 0.65);
+    font-size: 14px;
+    padding: 4px 377px 4px 4px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0;
+    /* margin-right: 30px */
+}
+
+#container {
+    margin-top: 143px;
+}
+
+#calculator {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 495px;
+    height: 548px;
+    background-color: hsla(0, 0%, 76%, 1);
+    /* border: 4px solid purple; */
+    border: 2px solid #00ccff;
+    box-shadow: 2px 2px 20px -5px;
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 140px;
+    margin: 5px 8px;
+    overflow: hidden;
+}
+
+#buffer {
+    font-size: 18px;
+    margin-right: 5px;
+    ;
+    margin-bottom: 5px;
+    /* overflow: hidden; */
+}
+
+#answer {
+    font-size: 52px;
+    margin-right: 5px;
+    ;
+    margin-bottom: 8px;
+}
+
+#input {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    width: 114px;
+    height: 71px;
+    margin: 4px;
+    font-size: 26px;
+    /* z-index: -1; */
+}
+
+
+
+/* This will overwrite the button class only */
+
+
+/* when the class is declared after button class. */
+
+.simclick {
+    background-color: lightgrey;
+}
+
+.button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.button::selection {
+    background: rgba(255, 255, 255, 0.0);
+}
+
+.button:active {
+    background-color: lightgrey;
+}
+
+.symbols {
+    font-size: 26px;
+    background-color: hsla(0, 0%, 92%, 1);
+}
