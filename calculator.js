@@ -107,7 +107,7 @@ function update(event) {
     }
 
     // back button
-    if (input === 'Back' && !isNaN(calcBuff[lastItem]) && !/e/.test(answer.innerHTML)) {
+    if (input === 'Back' && !isNaN(calcBuff[lastItem]) && !/[Ie]/.test(answer.innerHTML)) {
       calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
 
       if (calcBuff[lastItem] === '') {
@@ -139,6 +139,10 @@ function update(event) {
         calcBuff.pop();
       }
     }
+    if (input === 'CE' && opChk.test(calcBuff[calcBuff.length - 1].slice(-1))) {
+      answer.innerHTML = '0';
+    }
+
 
     // Output length logic
     if (answer.innerHTML.length > 14 && answer.innerHTML.length < 19) {
@@ -171,12 +175,9 @@ function equals() {
   if (calcBuff.length % 2 > 0) {
     lastCalc = calcBuff.slice(-2);
     console.log('***');
-    console.log(calcBuff.length);
     console.log(calcBuff);
-    console.log('Loop is fuckup somehow');
     while (calcBuff.length > 1) {
       input = calcBuff.slice(0, 3);
-      console.log(`Input length = ${input.length}`);
       if (input[1] === '+') {
         calcBuff.splice(0, 3, calc.add(input[0], input[2]));
       }
@@ -191,7 +192,6 @@ function equals() {
       }
     }
 
-    console.log('Loop is Okay');
     console.log(calcBuff);
 
     calcBuff[0] = calcBuff[0].toString();

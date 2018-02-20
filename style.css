@@ -1,41 +1,45 @@
+@font-face {
+    font-family: 'myRoboto';
+    src: url('Roboto-Regular.ttf') format('truetype');
+}
+
 @-webkit-keyframes BGColors {
     0% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
     50% {
-        background-position: 100% 52%
+        background-position: 100% 52%;
     }
     100% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
 }
 
 @-moz-keyframes BGColors {
     0% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
     50% {
-        background-position: 100% 52%
+        background-position: 100% 52%;
     }
     100% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
 }
 
 @keyframes BGColors {
     0% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
     50% {
-        background-position: 100% 52%
+        background-position: 100% 52%;
     }
     100% {
-        background-position: 0% 49%
+        background-position: 0 49%;
     }
 }
 
 body {
-    /* background-color: hsl(230, 12%, 20%); */
     font-family: 'Verdana', sans-serif;
     background: linear-gradient(274deg, #205367, #484b72, #4f7b70);
     background-size: 600% 600%;
@@ -45,39 +49,37 @@ body {
 }
 
 h1 {
-    color: #000000;
+    background-color: rgb(117, 162, 195);
     background-color: rgba(117, 162, 195, 0.65);
-    font-size: 14px;
-    /* padding: 4px 377px 4px 4px; */
-    padding: 4px 0 4px 4px;
-    width: 491px;
-    border-radius: 2px;
-    position: absolute;
-    left: 0;
-    top: 0;
+    font-size: 16px;
     margin: 0;
-    /* margin-right: 30px */
+    font-family: 'myRoboto';
+    font-weight: 400;
+    padding: 4px 0 4px 4px;
 }
 
 li {
-    /* padding-top: 2px; */
     padding-bottom: 10px;
 }
 
 #container {
-    margin-top: 143px;
+    margin-top: 65px;
 }
 
 #calculator {
+    /* border: 4px solid purple; */
     position: relative;
     margin-left: auto;
     margin-right: auto;
     width: 495px;
-    height: 548px;
+    height: 577px;
     background-color: hsla(0, 0%, 76%, 1);
-    /* border: 4px solid purple; */
     border: 2px solid #00ccff;
     box-shadow: 2px 2px 20px -5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #display {
@@ -93,9 +95,7 @@ li {
 #buffer {
     font-size: 18px;
     margin-right: 5px;
-    ;
-    margin-bottom: 5px;
-    /* overflow: hidden; */
+    margin-bottom: 20px;
 }
 
 #answer {
@@ -110,13 +110,13 @@ li {
 }
 
 #features {
-    width: 492px;
+    width: 490px;
     margin-left: auto;
     margin-right: auto;
     letter-spacing: 1px;
-    line-height: 26px;
+    /* line-height: 26px; */
     color: #8aa2a9;
-    /* text-shadow: 2px 2px black; */
+    font-family: myRoboto;
     /* border: 2px pink dashed; */
 }
 
@@ -151,37 +151,40 @@ li {
     height: 75px;
     margin: 2px;
     font-size: 26px;
-    /* z-index: -1; */
 }
 
 
 
-
-
-
-/* This will overwrite the button class only */
-
-
-/* when the class is declared after button class. */
+/* This will overwrite the button class only
+ when the class is declared after button class. */
 
 .simclick {
-    background-color: lightgrey;
+    background-color: grey;
 }
 
 .button:hover {
-    background-color: grey;
+    background-color: lightgrey;
     cursor: pointer;
 }
 
-.button::selection {
-    background: rgba(255, 255, 255, 0.0);
-}
+
 
 .button:active {
-    background-color: lightgrey;
+    background-color: grey;
 }
+
+
+/*Overwriting some stuff in the button class here*/
 
 .symbols {
     font-size: 26px;
     background-color: hsla(0, 0%, 92%, 1);
+}
+
+.symbols:hover {
+    background-color: lightsteelblue;
+}
+
+.symbols:active {
+    background-color: steelblue;
 }
