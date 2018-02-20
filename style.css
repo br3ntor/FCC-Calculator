@@ -1,23 +1,44 @@
 @-webkit-keyframes BGColors {
-    0%{background-position:0% 49%}
-    50%{background-position:100% 52%}
-    100%{background-position:0% 49%}
+    0% {
+        background-position: 0% 49%
+    }
+    50% {
+        background-position: 100% 52%
+    }
+    100% {
+        background-position: 0% 49%
+    }
 }
+
 @-moz-keyframes BGColors {
-    0%{background-position:0% 49%}
-    50%{background-position:100% 52%}
-    100%{background-position:0% 49%}
+    0% {
+        background-position: 0% 49%
+    }
+    50% {
+        background-position: 100% 52%
+    }
+    100% {
+        background-position: 0% 49%
+    }
 }
-@keyframes BGColors { 
-    0%{background-position:0% 49%}
-    50%{background-position:100% 52%}
-    100%{background-position:0% 49%}
+
+@keyframes BGColors {
+    0% {
+        background-position: 0% 49%
+    }
+    50% {
+        background-position: 100% 52%
+    }
+    100% {
+        background-position: 0% 49%
+    }
 }
+
 body {
-    /* background-color: hsl(230, 12%, 20%); */    
+    /* background-color: hsl(230, 12%, 20%); */
     font-family: 'Verdana', sans-serif;
     background: linear-gradient(274deg, #205367, #484b72, #4f7b70);
-    background-size: 600% 600%;    
+    background-size: 600% 600%;
     -webkit-animation: BGColors 59s ease infinite;
     -moz-animation: BGColors 59s ease infinite;
     animation: BGColors 59s ease infinite;
@@ -99,9 +120,26 @@ li {
     /* border: 2px pink dashed; */
 }
 
+#github {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-align: center;
+    /* border: 2px dotted pink; */
+}
+
+#github img {
+    width: 116px;
+    opacity: 0.4;
+}
+
+#github img:hover {
+    opacity: 1.0;
+}
+
 .row {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .button {
@@ -115,6 +153,9 @@ li {
     font-size: 26px;
     /* z-index: -1; */
 }
+
+
+
 
 
 
