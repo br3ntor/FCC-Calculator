@@ -40,7 +40,7 @@ function update(event) {
   const numChk = /\d/;
   const dotChk = /\./;
   const opChk = /[\+\−\×\÷]/;
-  let tmp = '';
+  let tmp = ''; // I don't remember why I made this and I'm not using it now
 
   // if calcBuff array is zeroed and input is digit
   if (calcBuff.length === 1 && calcBuff[0] === '0' && numChk.test(input)) {
@@ -51,7 +51,7 @@ function update(event) {
   } else {
 
     // if input is a digit and lastItem is digit
-    if (numChk.test(input) && numChk.test(calcBuff[lastItem])) {
+    if (numChk.test(input) && numChk.test(calcBuff[lastItem]) && !/e/.test(calcBuff[lastItem])) {
       if (answer.innerHTML.length < 22) {
         calcBuff[lastItem] = calcBuff[lastItem].concat(input);
         answer.innerHTML = calcBuff[lastItem];
@@ -59,7 +59,7 @@ function update(event) {
     }
 
     // if input is digit and lastItem is operator    
-    if (numChk.test(input) && opChk.test(calcBuff[lastItem])) {
+    if (numChk.test(input) && opChk.test(calcBuff[lastItem].slice(-1))) {
       calcBuff.push(input);
       answer.innerHTML = input;
     }
@@ -84,7 +84,7 @@ function update(event) {
     }
 
     // if input is decimal (\.) and last item is digit and doesn't contain decimal
-    if (dotChk.test(input)) {
+    if (dotChk.test(input) && !/e/.test(calcBuff[lastItem])) {
       if (numChk.test(calcBuff[lastItem]) && !dotChk.test(calcBuff[lastItem])) {
         calcBuff[lastItem] = calcBuff[lastItem].concat(input);
         answer.innerHTML = calcBuff[lastItem];

@@ -17,7 +17,6 @@ body {
     /* background-color: hsl(230, 12%, 20%); */    
     font-family: 'Verdana', sans-serif;
     background: linear-gradient(274deg, #205367, #484b72, #4f7b70);
-    /* background: linear-gradient(274deg, #205367, #484b72, #4f7b70); */    
     background-size: 600% 600%;    
     -webkit-animation: BGColors 59s ease infinite;
     -moz-animation: BGColors 59s ease infinite;
@@ -28,13 +27,20 @@ h1 {
     color: #000000;
     background-color: rgba(117, 162, 195, 0.65);
     font-size: 14px;
-    padding: 4px 377px 4px 4px;
+    /* padding: 4px 377px 4px 4px; */
+    padding: 4px 0 4px 4px;
+    width: 491px;
     border-radius: 2px;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     margin: 0;
     /* margin-right: 30px */
+}
+
+li {
+    /* padding-top: 2px; */
+    padding-bottom: 10px;
 }
 
 #container {
@@ -74,7 +80,6 @@ h1 {
 #answer {
     font-size: 52px;
     margin-right: 5px;
-    ;
     margin-bottom: 8px;
 }
 
@@ -83,9 +88,20 @@ h1 {
     flex-direction: column;
 }
 
+#features {
+    width: 492px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: #8aa2a9;
+    /* text-shadow: 2px 2px black; */
+    /* border: 2px pink dashed; */
+}
+
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .button {
@@ -93,9 +109,9 @@ h1 {
     align-items: center;
     background-color: white;
     justify-content: center;
-    width: 114px;
-    height: 71px;
-    margin: 4px;
+    width: 118px;
+    height: 75px;
+    margin: 2px;
     font-size: 26px;
     /* z-index: -1; */
 }
