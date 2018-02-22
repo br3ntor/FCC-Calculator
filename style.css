@@ -182,9 +182,9 @@ li {
 }
 
 .symbols:hover {
-    background-color: lightsteelblue;
+    background-color: #87afe2;
 }
 
 .symbols:active {
-    background-color: steelblue;
+    background-color: #3d82bf;
 }

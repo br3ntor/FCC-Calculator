@@ -108,7 +108,12 @@ function update(event) {
 
     // back button
     if (input === 'Back' && !isNaN(calcBuff[lastItem]) && !/[Ie]/.test(answer.innerHTML)) {
-      calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
+      if (calcBuff.length === 1 && calcBuff[0].length === 2 && /\-/.test(calcBuff[0])) {
+        calcBuff = ['0'];
+        answer.innerHTML = '0';
+      } else {
+        calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
+      }
 
       if (calcBuff[lastItem] === '') {
         calcBuff.pop();
