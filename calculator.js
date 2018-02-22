@@ -108,8 +108,8 @@ function update(event) {
 
     // back button
     if (input === 'Back' && !isNaN(calcBuff[lastItem]) && !/[Ie]/.test(answer.innerHTML)) {
-      if (calcBuff.length === 1 && calcBuff[0].length === 2 && /\-/.test(calcBuff[0])) {
-        calcBuff = ['0'];
+      if (calcBuff[lastItem].length === 2 && /\-/.test(calcBuff[lastItem])) {
+        calcBuff[lastItem] = '0';
         answer.innerHTML = '0';
       } else {
         calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
