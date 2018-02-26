@@ -251,13 +251,22 @@ document.addEventListener('keydown', (event) => {
   console.log(keyName);
 
   function whiteBG(element) {
-    element.classList.remove('simclick');
+    element.classList.remove('simclick-num');
+  }
+
+  function blueBG(element) {
+    element.classList.remove('simclick-op');
   }
 
   function clickSim(element) {
     element.click();
-    element.classList.add('simclick');
-    setTimeout(whiteBG, 100, element);
+    if (!isNaN(element.innerHTML)) {
+      element.classList.add('simclick-num');
+      setTimeout(whiteBG, 100, element);
+    } else {
+      element.classList.add('simclick-op');
+      setTimeout(blueBG, 100, element);
+    }
   }
 
   switch (keyName) {

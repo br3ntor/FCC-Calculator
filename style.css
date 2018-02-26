@@ -155,12 +155,16 @@ li {
 
 
 
+
+
 /* This will overwrite the button class only
  when the class is declared after button class. */
 
-.simclick {
+.simclick-num {
     background-color: grey;
 }
+
+
 
 .button:hover {
     background-color: lightgrey;
@@ -174,6 +178,8 @@ li {
 }
 
 
+
+
 /*Overwriting some stuff in the button class here*/
 
 .symbols {
@@ -183,9 +189,15 @@ li {
 
 .symbols:hover {
     background-color: #87afe2;
-
 }
 
 .symbols:active {
+    background-color: #3d82bf;
+}
+
+
+/* Like above this must come below for it to take control */
+
+.simclick-op {
     background-color: #3d82bf;
 }
