@@ -2,6 +2,7 @@
 // Author: Br3ntor
 let calcBuff = ['0'];
 let lastCalc = [];
+let lastValue = [];
 const buf = document.getElementById('buffer');
 const answer = document.getElementById('answer');
 const buttons = document.getElementsByClassName('button');
@@ -40,14 +41,20 @@ function update(event) {
   const numChk = /\d/;
   const dotChk = /\./;
   const opChk = /[\+\−\×\÷]/;
-  let tmp = ''; // I don't remember why I made this and I'm not using it now
+  lastValue = [];
+  lastCalc = [];
 
   // if calcBuff array is zeroed and input is digit
   if (calcBuff.length === 1 && calcBuff[0] === '0' && numChk.test(input)) {
     calcBuff[0] = input;
     answer.innerHTML = calcBuff[lastItem];
+    // To take care of state after equals is pressed
+  } else if (calcBuff.length === 1 && answer.innerHTML !== '0' && opChk.test(input)) {
+    calcBuff[0] = answer.innerHTML;
+    calcBuff.push(input);
+    buf.innerHTML = calcBuff.join(' ');
 
-    // if calcBuff array is not empty    
+    // if calcBuff array is not empty
   } else {
 
     // if input is a digit and lastItem is digit
@@ -97,6 +104,9 @@ function update(event) {
 
     // neg/pos button
     if (input === '±' && !isNaN(calcBuff[lastItem])) {
+      if (calcBuff.length === 1 && calcBuff[0] === '0') {
+        calcBuff[0] = answer.innerHTML;
+      }
       if (/e/.test(calcBuff[lastItem])) {
         calcBuff[lastItem] = (calcBuff[lastItem] * -1).toExponential();
         answer.innerHTML = calcBuff[lastItem];
@@ -114,7 +124,6 @@ function update(event) {
       } else {
         calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
       }
-
       if (calcBuff[lastItem] === '') {
         calcBuff.pop();
         answer.innerHTML = '0';
@@ -148,7 +157,6 @@ function update(event) {
       answer.innerHTML = '0';
     }
 
-
     // Output length logic
     if (answer.innerHTML.length > 14 && answer.innerHTML.length < 19) {
       answer.style.fontSize = '40px';
@@ -172,12 +180,12 @@ function equals() {
 
   if (calcBuff.length === 1 && lastCalc.length === 2) {
     console.log(lastCalc);
-    calcBuff = calcBuff.concat(lastCalc);
+    calcBuff = lastValue.concat(lastCalc);
   }
   if (/[\+\−\×\÷]/.test(calcBuff[calcBuff.length - 1]) && !/e/.test(calcBuff[calcBuff.length - 1])) {
     calcBuff.push(answer.innerHTML);
   }
-  if (calcBuff.length % 2 > 0) {
+  if (calcBuff.length % 2 > 0 && calcBuff.length > 2) {
     lastCalc = calcBuff.slice(-2);
     console.log('***');
     console.log(calcBuff);
@@ -211,6 +219,11 @@ function equals() {
       answer.style.fontSize = '';
     }
     console.log(calcBuff);
+  }
+  lastValue = calcBuff;
+
+  if (lastCalc.length !== 0) {
+    calcBuff = ['0'];
   }
 }
 
