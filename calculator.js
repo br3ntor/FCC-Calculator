@@ -116,24 +116,27 @@ function update(event) {
       }
     }
 
-    // back button
+    // Back button
     if (input === 'Back' && !isNaN(calcBuff[lastItem]) && !/[Ie]/.test(answer.innerHTML)) {
-      if (calcBuff[lastItem].length === 2 && /\-/.test(calcBuff[lastItem])) {
-        calcBuff[lastItem] = '0';
-        answer.innerHTML = '0';
-      } else {
-        calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
+      if (calcBuff[0] !== '0' && calcBuff.length !== 1) {
+        if (calcBuff[lastItem].length === 2 && /\-/.test(calcBuff[lastItem])) {
+          calcBuff[lastItem] = '0';
+          answer.innerHTML = '0';
+        } else {
+          calcBuff[lastItem] = calcBuff[lastItem].slice(0, calcBuff[lastItem].length - 1);
+        }
+        if (calcBuff[lastItem] === '') {
+          calcBuff.pop();
+          answer.innerHTML = '0';
+        } else {
+          answer.innerHTML = calcBuff[lastItem];
+        }
+        if (calcBuff.length === 0) {
+          calcBuff = ['0'];
+          answer.innerHTML = calcBuff[lastItem];
+        }
       }
-      if (calcBuff[lastItem] === '') {
-        calcBuff.pop();
-        answer.innerHTML = '0';
-      } else {
-        answer.innerHTML = calcBuff[lastItem];
-      }
-      if (calcBuff.length === 0) {
-        calcBuff = ['0'];
-        answer.innerHTML = calcBuff[lastItem];
-      }
+
     }
 
     // C button
