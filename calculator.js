@@ -136,7 +136,6 @@ function update(event) {
           answer.innerHTML = calcBuff[lastItem];
         }
       }
-
     }
 
     // C button
