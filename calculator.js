@@ -44,17 +44,21 @@ function update(event) {
   lastValue = [];
   lastCalc = [];
 
-  // if calcBuff array is zeroed and input is digit
+  // if calcBuff array is zeroed (empty) and input is digit
   if (calcBuff.length === 1 && calcBuff[0] === '0' && numChk.test(input)) {
     calcBuff[0] = input;
+    // This line is a quick fix, not sure if it would be better to add to output length logic below
+    // or if it will have any unintended consequences. I guess we'll see.
+    answer.style.fontSize = '';
     answer.innerHTML = calcBuff[lastItem];
+    
     // To take care of state after equals is pressed
   } else if (calcBuff.length === 1 && answer.innerHTML !== '0' && opChk.test(input)) {
     calcBuff[0] = answer.innerHTML;
     calcBuff.push(input);
     buf.innerHTML = calcBuff.join(' ');
 
-    // if calcBuff array is not empty
+    // else calcBuff array is not empty
   } else {
 
     // if input is a digit and lastItem is digit
@@ -159,7 +163,7 @@ function update(event) {
       answer.innerHTML = '0';
     }
 
-    // Output length logic
+    // Output length logic    
     if (answer.innerHTML.length > 14 && answer.innerHTML.length < 19) {
       answer.style.fontSize = '40px';
     } else if (answer.innerHTML.length > 18 && answer.innerHTML.length < 23) {
